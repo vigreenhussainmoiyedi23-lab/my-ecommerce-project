@@ -14,7 +14,6 @@ const defaultCurrentUser = {
 // Save to localStorage
 export const SetlocalStorage = async () => {
   const products = await ProductArray();
-  console.log(products)
   localStorage.setItem("products", JSON.stringify(products));
   localStorage.setItem("CurrentUser", JSON.stringify(defaultCurrentUser));
   localStorage.setItem("Users", JSON.stringify(Users || []));

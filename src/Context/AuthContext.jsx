@@ -5,11 +5,11 @@ export const LogContext = createContext();
 
 const AuthContext = ({ children }) => {
 const data=GetlocalStorage()
-console.log(data)
+
 const [products, setProducts] = useState(data.products)
 const [users, setUsers] = useState(data.users || [])
 const [currentUser, setCurrentUser] = useState(data.currentUser)
-console.log(currentUser)
+
 
 useEffect(() => {
   localStorage.setItem("products", JSON.stringify(products));
@@ -19,7 +19,6 @@ useEffect(() => {
 useEffect(() => {
   console.log(`Updating CurrentUser`)
   localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
-  console.log(currentUser)
 }, [currentUser])
 
 if (!products || !Array.isArray(users)) {

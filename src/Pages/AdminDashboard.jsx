@@ -86,7 +86,7 @@ const AdminDashboard = () => {
       </h1>
 
       {/* Stats Widgets */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         <div className="p-4 bg-emerald-100 rounded-lg text-center">
           <h2 className="font-bold">Total Users</h2>
           <p>{users.length}</p>
@@ -106,7 +106,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="flex flex-wrap gap-6 mb-8">
         {/* Orders vs Delivered */}
         <div className="p-4 bg-white rounded-lg shadow-md">
           <h3 className="font-bold mb-2 text-gray-800">

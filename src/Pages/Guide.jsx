@@ -66,13 +66,13 @@ const Guide = () => {
       </div>
 
       {/* Features Grid */}
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="flex flex-wrap max-w-6xl mx-auto items-center justify-center">
         {features.map((f, idx) => {
           const Icon = f.icon;
           return (
             <div
               key={idx}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:scale-105 transform transition duration-300 flex flex-col"
+              className="bg-white/10 w-[max(300px,40%)] m-5 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:scale-105 transform transition duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
                 <Icon className="w-10 h-10 text-yellow-300" />

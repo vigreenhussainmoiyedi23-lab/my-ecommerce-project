@@ -6,7 +6,8 @@ import ProductsInCart from "../components/Cartcomponenets.jsx/ProductsInCart";
 import EmptyCart from "../components/Cartcomponenets.jsx/EmptyCart";
 
 const Cart = () => {
-  const { currentUser, setCurrentUser } = useContext(LogContext);
+
+  const { currentUser, setCurrentUser,users,setUsers } = useContext(LogContext);
 
   const [cartItems, setCartItems] = useState(() => {
     const base = currentUser?.CartItems ?? [];
@@ -34,7 +35,7 @@ const Cart = () => {
   if (checkout) {
     return (
       <section className="relative w-full h-max">
-        <Checkout setCheckout={setCheckout} setCartItems={setCartItems} />
+        <Checkout setCheckout={setCheckout} users={users} setUsers={setUsers} setCartItems={setCartItems} />
       </section>
     );
   }

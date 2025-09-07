@@ -2,13 +2,23 @@ import React, { useContext, useState } from "react";
 import { LogContext } from "../../Context/AuthContext";
 import { motion } from "framer-motion";
 
-const Checkout = ({ setCheckout, setCartItems }) => {
+const Checkout = ({ setCheckout, setCartItems, users, setUsers }) => {
   const [formData, setFormData] = useState({
     name: "",
     address: "",
     cardNumber: "",
   });
-
+  const CheckOutHandler = () => {
+    if (!currentUser) return;
+    setUsers((prevUsers) => {
+      const idx = prevUsers.findIndex((u) => u.email === currentUser.email);
+      if (idx === -1) return [...prevUsers, currentUser];
+      const updated = [...prevUsers];
+      updated[idx] = currentUser;
+      console.log(`the checkout handler ran and updated users ${users}`)
+      return updated;
+    });
+  };
   const { currentUser, setCurrentUser } = useContext(LogContext);
   const [orderPlaced, setOrderPlaced] = useState(false);
 
@@ -84,8 +94,11 @@ const Checkout = ({ setCheckout, setCartItems }) => {
             />
             <motion.button
               type="submit"
+              onClick={() => {
+                CheckOutHandler()
+              }}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.8 }}
               className="bg-emerald-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-emerald-700 transition mt-2"
             >
               Place Order
@@ -108,6 +121,7 @@ const Checkout = ({ setCheckout, setCartItems }) => {
               onClick={() => {
                 setCheckout(false);
                 setOrderPlaced(false);
+
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

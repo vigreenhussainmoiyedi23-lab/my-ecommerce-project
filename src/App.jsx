@@ -14,17 +14,17 @@ import { LogContext } from "./Context/AuthContext";
 import Guide from "./Pages/Guide.jsx";
 
 const App = () => {
-  const { currentUser } = useContext(LogContext);
+  const { currentUser, setCurrentUser, products } = useContext(LogContext);
 
   if (!currentUser?.email) {
     return <Login />;
   }
-
+ 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser} products={products}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/ProductsMore/:id" element={<ProductMore />} />
         <Route path="/contact" element={<Contact />} />

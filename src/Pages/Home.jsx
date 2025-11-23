@@ -5,8 +5,8 @@ import HeroHome from '../components/HomeComponents/HeroHome'
 import LandingPromo from '../components/HomeComponents/FeaturesHome'
 import { LogContext } from '../Context/AuthContext'
 
-const Home = () => {
-  const { currentUser, setCurrentUser, products } = useContext(LogContext);
+const Home = (props) => {
+  const { currentUser, setCurrentUser, products } = props;
   return (
     <>
     <HeroHome/>
